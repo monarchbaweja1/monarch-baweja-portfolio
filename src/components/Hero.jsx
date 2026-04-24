@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Code2, Download, ExternalLink, Mail } from "lucide-react";
 import DataConstellation from "./DataConstellation.jsx";
-import TextReveal from "./TextReveal.jsx";
 
 const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
 
@@ -11,16 +10,21 @@ export default function Hero() {
       <div className="hero-editorial-card page-load">
         <div className="hero-copy">
           <p className="eyebrow">Monarch Baweja</p>
-          <h1 className="hero-title">
-            <TextReveal delay={0.04}>DATA.</TextReveal>
-            <TextReveal delay={0.16}>AI.</TextReveal>
-            <TextReveal delay={0.28}>STRATEGY.</TextReveal>
-            <TextReveal delay={0.4}>REIMAGINED.</TextReveal>
+          <h1 className="hero-title editorial-title">
+            <span>Inside My</span>
+            <span>Data Core</span>
           </h1>
-          <p className="hero-subtitle editorial-copy">
-            I'm a <mark>MBA Big Data Analytics student</mark> building data, AI, and business analytics solutions with a
-            focus on <mark>machine learning</mark>, dashboards, and <mark>decision-ready storytelling</mark>.
-          </p>
+          <div className="hero-subtitle editorial-copy">
+            <p>
+              I'm a <mark>MBA Big Data Analytics student</mark> with a passion for converting raw data into clear,
+              business-ready intelligence. I work across analytics, dashboards, machine learning, and structured
+              problem solving.
+            </p>
+            <p>
+              I enjoy solving real-world business problems and <mark>turning complex datasets</mark> into clean,
+              decision-focused insights for teams and recruiters.
+            </p>
+          </div>
           <p className="role-line">Target roles: Data Analyst | Data Scientist | Business Analyst | AI/ML Intern</p>
           <div className="button-row">
             <a className="cinematic-button" href="#projects">View Projects</a>
