@@ -1118,6 +1118,174 @@ button {
   font-weight: 500;
 }
 
+.contact-final {
+  min-height: 100vh;
+  padding-top: 130px;
+  padding-bottom: 110px;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.72fr) minmax(420px, 1fr);
+  gap: clamp(42px, 7vw, 104px);
+  align-items: start;
+}
+
+.code-kicker {
+  margin: 0;
+  color: rgba(255,255,255,0.42);
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.contact-copy h2 {
+  margin: 20px 0 38px;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(3.4rem, 6.1vw, 5.45rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.contact-copy h2 span {
+  display: block;
+}
+
+.contact-copy h2 span:first-child {
+  color: rgba(247,245,238,0.98);
+}
+
+.contact-copy h2 span:last-child {
+  color: rgba(255,255,255,0.55);
+}
+
+.contact-direct {
+  display: grid;
+  max-width: 520px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-direct a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 16px 0;
+  color: rgba(255,255,255,0.64);
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-direct a:hover {
+  transform: translateX(6px);
+  border-color: rgba(200,181,116,0.36);
+  color: rgba(247,245,238,0.94);
+}
+
+.contact-direct span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(200,181,116,0.78);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.contact-direct strong {
+  color: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.contact-form {
+  display: grid;
+  gap: 28px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 12px;
+  color: rgba(255,255,255,0.72);
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0;
+  background: rgba(255,255,255,0.025);
+  color: rgba(247,245,238,0.94);
+  font: inherit;
+  font-size: 16px;
+  min-height: 68px;
+  outline: none;
+  padding: 0 22px;
+  transition:
+    border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-form textarea {
+  min-height: 156px;
+  padding-top: 20px;
+  resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255,255,255,0.38);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(200,181,116,0.48);
+  background: rgba(0,0,0,0.24);
+  box-shadow: 0 0 34px rgba(200,181,116,0.09);
+}
+
+.contact-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 10px;
+  min-height: 44px;
+  border: 0;
+  background: rgba(247,245,238,0.98);
+  color: #111;
+  cursor: pointer;
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 0 23px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: #fff;
+  box-shadow: 0 0 34px rgba(247,245,238,0.18);
+}
+
 @keyframes floatOrganic {
   from {
     transform: translate3d(0, 0, 0) rotate(0deg);
@@ -1235,6 +1403,15 @@ button {
     grid-template-columns: 1fr;
   }
 
+  .contact-layout,
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-layout {
+    gap: 42px;
+  }
+
   .workflow-strip span {
     border-right: 0;
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -1274,6 +1451,20 @@ button {
   .section-header h2 {
     font-size: clamp(2.25rem, 12vw, 3rem);
     letter-spacing: 0.055em;
+  }
+
+  .contact-copy h2 {
+    font-size: clamp(3rem, 15vw, 4.2rem);
+  }
+
+  .contact-direct a {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-direct strong {
+    text-align: left;
   }
 
   .button-row {
