@@ -267,19 +267,23 @@ button {
 
 .editorial-copy {
   max-width: 660px;
-  color: rgba(255,255,255,0.58);
+  color: rgba(255,255,255,0.72);
   font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: clamp(1rem, 1.45vw, 1.34rem);
+  font-size: clamp(1.08rem, 1.65vw, 1.55rem);
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.48;
+  text-shadow: 0 0 20px rgba(0,0,0,0.35);
 }
 
 .editorial-copy mark {
-  color: rgba(255, 252, 205, 0.92);
-  background: linear-gradient(180deg, transparent 12%, rgba(200,181,116,0.32) 12%, rgba(200,181,116,0.24) 88%, transparent 88%);
+  color: rgba(255, 253, 207, 0.98);
+  background:
+    linear-gradient(180deg, rgba(200,181,116,0.1), rgba(200,181,116,0.34)),
+    rgba(200,181,116,0.16);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  padding: 0 5px;
+  padding: 1px 7px 2px;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.12), 0 0 22px rgba(200,181,116,0.08);
 }
 
 .role-line {
@@ -336,12 +340,12 @@ button {
   position: relative;
   display: grid;
   justify-self: center;
-  width: clamp(250px, 28vw, 380px);
-  border: 1px solid rgba(255,255,255,0.12);
+  width: clamp(280px, 31vw, 430px);
+  border: 1px solid rgba(255,255,255,0.16);
   background:
     linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015)),
     rgba(6, 10, 9, 0.45);
-  box-shadow: 0 34px 120px rgba(0,0,0,0.48), 0 0 80px rgba(87,132,82,0.13);
+  box-shadow: 0 34px 120px rgba(0,0,0,0.52), 0 0 94px rgba(87,132,82,0.2);
   backdrop-filter: blur(16px);
 }
 
@@ -387,28 +391,30 @@ button {
 
 .profile-follow {
   display: flex;
-  min-height: 84px;
+  min-height: 92px;
   align-items: center;
   justify-content: center;
-  gap: 22px;
+  gap: 24px;
   border-top: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.018);
+  background: rgba(255,255,255,0.03);
 }
 
 .profile-follow span {
-  color: rgba(255,255,255,0.58);
+  color: rgba(255,255,255,0.7);
   font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 
 .profile-follow a {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   place-items: center;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50%;
   color: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.025);
   transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
@@ -416,6 +422,37 @@ button {
   transform: translateY(-3px);
   border-color: rgba(200,181,116,0.34);
   background: rgba(200,181,116,0.08);
+}
+
+.profile-caption {
+  position: absolute;
+  left: -42px;
+  bottom: 64px;
+  z-index: 5;
+  width: min(280px, 76%);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 18px;
+  padding: 15px 16px;
+  background: rgba(3, 7, 6, 0.72);
+  box-shadow: 0 22px 80px rgba(0,0,0,0.42), 0 0 34px rgba(200,181,116,0.08);
+  backdrop-filter: blur(18px);
+}
+
+.profile-caption span {
+  color: rgba(200,181,116,0.78);
+  font-size: 10px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.profile-caption p {
+  margin: 7px 0 0;
+  color: rgba(255,255,255,0.76);
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
 .hero-data {
@@ -1026,6 +1063,14 @@ button {
   .hero-profile-stack {
     justify-self: start;
     width: min(76vw, 330px);
+  }
+
+  .profile-caption {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: auto;
+    margin: 0 16px 16px;
   }
 
   .snapshot-grid,

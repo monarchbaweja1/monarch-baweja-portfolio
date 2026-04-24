@@ -18,7 +18,7 @@ export default function Hero() {
         </h1>
         <p className="hero-subtitle editorial-copy">
           I'm a <mark>MBA Big Data Analytics student</mark> building data, AI, and business analytics solutions with a
-          focus on <mark>machine learning</mark>, dashboards, and decision-ready storytelling.
+          focus on <mark>machine learning</mark>, dashboards, and <mark>decision-ready storytelling</mark>.
         </p>
         <p className="role-line">Target roles: Data Analyst | Data Scientist | Business Analyst | AI/ML Intern</p>
         <div className="button-row">
@@ -51,6 +51,10 @@ export default function Hero() {
             <ExternalLink size={18} />
           </a>
           <a href="https://github.com/" aria-label="Open GitHub" target="_blank" rel="noreferrer"><Code2 size={18} /></a>
+        </div>
+        <div className="profile-caption">
+          <span>Profile Core</span>
+          <p>Analytics + ML + business problem solving.</p>
         </div>
       </div>
 
