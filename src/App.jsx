@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import AnimatedBackground from "./components/AnimatedBackground.jsx";
-import AtmosphereToggle from "./components/AtmosphereToggle.jsx";
 import CursorGlow from "./components/CursorGlow.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
@@ -18,8 +17,6 @@ import Contact from "./components/Contact.jsx";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
-  const [enhancedAtmosphere, setEnhancedAtmosphere] = useState(false);
-
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.28,
@@ -74,11 +71,10 @@ export default function App() {
 
   return (
     <>
-      <AnimatedBackground enhanced={enhancedAtmosphere} />
+      <AnimatedBackground enhanced />
       <CursorGlow />
       <main className="site-content">
         <Navbar />
-        <AtmosphereToggle active={enhancedAtmosphere} onToggle={setEnhancedAtmosphere} />
         <Hero />
         <Snapshot />
         <About />
