@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Mail } from "lucide-react";
+import { Code2, Download, ExternalLink, Mail } from "lucide-react";
 import DataConstellation from "./DataConstellation.jsx";
 import TextReveal from "./TextReveal.jsx";
 
@@ -16,8 +16,9 @@ export default function Hero() {
           <TextReveal delay={0.28}>STRATEGY.</TextReveal>
           <TextReveal delay={0.4}>REIMAGINED.</TextReveal>
         </h1>
-        <p className="hero-subtitle">
-          Monarch Baweja - MBA Big Data Analytics student building data, AI, and business analytics solutions.
+        <p className="hero-subtitle editorial-copy">
+          I'm a <mark>MBA Big Data Analytics student</mark> building data, AI, and business analytics solutions with a
+          focus on <mark>machine learning</mark>, dashboards, and decision-ready storytelling.
         </p>
         <p className="role-line">Target roles: Data Analyst | Data Scientist | Business Analyst | AI/ML Intern</p>
         <div className="button-row">
@@ -33,15 +34,25 @@ export default function Hero() {
         </div>
       </div>
 
-      <motion.div
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="hero-photo page-load"
-        initial={{ opacity: 0, scale: 0.9, y: 22 }}
-        transition={{ duration: 0.85, delay: 0.45, ease: [0.4, 0, 0.2, 1] }}
-      >
-        <img src={asset("profile.jpg")} alt="Monarch Baweja professional portrait" />
-        <span className="photo-orbit" />
-      </motion.div>
+      <div className="hero-profile-stack page-load">
+        <motion.div
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          className="hero-photo"
+          initial={{ opacity: 0, scale: 0.9, y: 22 }}
+          transition={{ duration: 0.85, delay: 0.45, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <img src={asset("profile.jpg")} alt="Monarch Baweja professional portrait" />
+          <span className="photo-orbit" />
+        </motion.div>
+        <div className="profile-follow">
+          <span>Connect:</span>
+          <a href="mailto:monarch.baweja25b@gim.ac.in" aria-label="Email Monarch Baweja"><Mail size={18} /></a>
+          <a href="https://www.linkedin.com/in/monarchbaweja" aria-label="Open LinkedIn" target="_blank" rel="noreferrer">
+            <ExternalLink size={18} />
+          </a>
+          <a href="https://github.com/" aria-label="Open GitHub" target="_blank" rel="noreferrer"><Code2 size={18} /></a>
+        </div>
+      </div>
 
       <div className="hero-data page-load">
         <DataConstellation />

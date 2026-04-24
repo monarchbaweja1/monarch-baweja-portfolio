@@ -265,6 +265,23 @@ button {
   margin: 28px 0 0;
 }
 
+.editorial-copy {
+  max-width: 660px;
+  color: rgba(255,255,255,0.58);
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(1rem, 1.45vw, 1.34rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.editorial-copy mark {
+  color: rgba(255, 252, 205, 0.92);
+  background: linear-gradient(180deg, transparent 12%, rgba(200,181,116,0.32) 12%, rgba(200,181,116,0.24) 88%, transparent 88%);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0 5px;
+}
+
 .role-line {
   margin: 12px 0 0;
   color: rgba(255,255,255,0.74);
@@ -315,18 +332,38 @@ button {
   color: rgba(255,255,255,0.66);
 }
 
+.hero-profile-stack {
+  position: relative;
+  display: grid;
+  justify-self: center;
+  width: clamp(250px, 28vw, 380px);
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015)),
+    rgba(6, 10, 9, 0.45);
+  box-shadow: 0 34px 120px rgba(0,0,0,0.48), 0 0 80px rgba(87,132,82,0.13);
+  backdrop-filter: blur(16px);
+}
+
+.hero-profile-stack::before {
+  position: absolute;
+  inset: 18px;
+  content: "";
+  border: 1px solid rgba(200,181,116,0.08);
+  pointer-events: none;
+}
+
 .hero-photo {
   position: relative;
-  justify-self: center;
-  width: clamp(210px, 25vw, 345px);
-  aspect-ratio: 0.82;
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 28px;
-  padding: 10px;
+  width: 100%;
+  aspect-ratio: 0.86;
+  border: 0;
+  border-radius: 0;
+  padding: clamp(16px, 2vw, 22px);
   background:
     radial-gradient(circle at 50% 12%, rgba(200,181,116,0.18), transparent 36%),
     rgba(255,255,255,0.035);
-  box-shadow: 0 34px 120px rgba(0,0,0,0.46), 0 0 80px rgba(87,132,82,0.16);
+  box-shadow: none;
 }
 
 .hero-photo img {
@@ -334,7 +371,7 @@ button {
   z-index: 2;
   width: 100%;
   height: 100%;
-  border-radius: 22px;
+  border-radius: 22px 22px 4px 4px;
   object-fit: cover;
   object-position: center top;
   filter: grayscale(0.06) contrast(1.04) brightness(0.88);
@@ -342,10 +379,43 @@ button {
 
 .photo-orbit {
   position: absolute;
-  inset: -22px;
-  border: 1px solid rgba(200,181,116,0.14);
-  border-radius: 36px;
+  inset: 4px;
+  border: 1px solid rgba(200,181,116,0.16);
+  border-radius: 26px 26px 8px 8px;
   animation: photoPulse 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+.profile-follow {
+  display: flex;
+  min-height: 84px;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.018);
+}
+
+.profile-follow span {
+  color: rgba(255,255,255,0.58);
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.profile-follow a {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid transparent;
+  color: rgba(255,255,255,0.88);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.profile-follow a:hover {
+  transform: translateY(-3px);
+  border-color: rgba(200,181,116,0.34);
+  background: rgba(200,181,116,0.08);
 }
 
 .hero-data {
@@ -951,7 +1021,11 @@ button {
   .hero-photo {
     grid-row: 2;
     justify-self: start;
-    width: min(76vw, 310px);
+  }
+
+  .hero-profile-stack {
+    justify-self: start;
+    width: min(76vw, 330px);
   }
 
   .snapshot-grid,
