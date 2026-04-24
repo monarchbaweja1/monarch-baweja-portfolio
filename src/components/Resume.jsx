@@ -5,6 +5,7 @@ const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
 const rows = [
   ["Education", "MBA Big Data Analytics"],
   ["Experience", "Nexval Infotech, KreativeKode"],
+  ["Certifications", "Quantitative Modeling, HSBC, Financial Analysis, KPMG"],
   ["Focus Areas", "Data Analytics, Machine Learning, Business Analytics"],
 ];
 

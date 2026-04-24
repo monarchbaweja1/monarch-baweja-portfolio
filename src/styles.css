@@ -643,6 +643,7 @@ button {
 .about-grid,
 .projects-grid,
 .skills-grid,
+.certifications-grid,
 .contact-grid {
   display: grid;
   gap: 16px;
@@ -706,6 +707,10 @@ button {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
+.certifications-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .contact-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -714,6 +719,7 @@ button {
 .cinematic-panel,
 .project-panel,
 .skill-group,
+.certification-panel,
 .resume-preview,
 .contact-grid a {
   position: relative;
@@ -731,6 +737,7 @@ button {
 .cinematic-panel::before,
 .project-panel::before,
 .skill-group::before,
+.certification-panel::before,
 .resume-preview::before,
 .contact-grid a::before {
   position: absolute;
@@ -745,6 +752,7 @@ button {
 .cinematic-panel > *,
 .project-panel > *,
 .skill-group > *,
+.certification-panel > *,
 .resume-preview > *,
 .contact-grid a > * {
   position: relative;
@@ -754,6 +762,7 @@ button {
 .snapshot-block,
 .cinematic-panel,
 .skill-group,
+.certification-panel,
 .contact-grid a {
   min-height: 190px;
   padding: 24px;
@@ -782,6 +791,41 @@ button {
   line-height: 1.02;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+.certification-panel h3 {
+  margin: 26px 0 14px;
+  color: rgba(255,255,255,0.92);
+  font-family: "Arial Narrow", "Roboto Condensed", Impact, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.15rem, 1.65vw, 1.55rem);
+  font-weight: 850;
+  line-height: 1.04;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.certification-panel span {
+  color: rgba(200,181,116,0.76);
+  font-size: 10px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.certification-panel p {
+  margin: 0 0 26px;
+  color: rgba(255,255,255,0.66);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.certification-panel strong {
+  display: block;
+  color: rgba(255,255,255,0.78);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.62;
+  text-shadow: 0 1px 14px rgba(0,0,0,0.35);
 }
 
 .snapshot-block p,
@@ -1121,6 +1165,7 @@ button {
   .snapshot-grid,
   .projects-grid,
   .skills-grid,
+  .certifications-grid,
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1184,6 +1229,7 @@ button {
   .snapshot-grid,
   .projects-grid,
   .skills-grid,
+  .certifications-grid,
   .contact-grid,
   .workflow-strip {
     grid-template-columns: 1fr;
