@@ -1,7 +1,12 @@
 import { useEffect, useRef } from "react";
 
-export default function AnimatedBackground() {
+export default function AnimatedBackground({ enhanced = false }) {
   const canvasRef = useRef(null);
+  const enhancedRef = useRef(enhanced);
+
+  useEffect(() => {
+    enhancedRef.current = enhanced;
+  }, [enhanced]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -11,6 +16,7 @@ export default function AnimatedBackground() {
     let height = 0;
     let raf = 0;
     let nodes = [];
+    let intensity = enhancedRef.current ? 1 : 0;
 
     const dprValue = () => Math.min(window.devicePixelRatio || 1, 2);
 
@@ -63,9 +69,9 @@ export default function AnimatedBackground() {
           const maxDistance = 164 * dpr;
 
           if (distance < maxDistance) {
-            const opacity = 0.24 * (1 - distance / maxDistance) * Math.min(node.depth, other.depth);
-            ctx.strokeStyle = `rgba(58, 145, 184, ${opacity})`;
-            ctx.lineWidth = 0.75 * dpr;
+            const opacity = (0.1 + intensity * 0.28) * (1 - distance / maxDistance) * Math.min(node.depth, other.depth);
+            ctx.strokeStyle = `rgba(64, 159, 205, ${opacity})`;
+            ctx.lineWidth = (0.45 + intensity * 0.55) * dpr;
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
@@ -85,8 +91,8 @@ export default function AnimatedBackground() {
         const maxDistance = 230 * dpr;
 
         if (distance < maxDistance) {
-          ctx.strokeStyle = `rgba(200, 181, 116, ${0.28 * (1 - distance / maxDistance)})`;
-          ctx.lineWidth = 0.9 * dpr;
+          ctx.strokeStyle = `rgba(200, 181, 116, ${(0.16 + intensity * 0.28) * (1 - distance / maxDistance)})`;
+          ctx.lineWidth = (0.65 + intensity * 0.6) * dpr;
           ctx.beginPath();
           ctx.moveTo(pointer.x, pointer.y);
           ctx.lineTo(node.x, node.y);
@@ -98,24 +104,27 @@ export default function AnimatedBackground() {
     const drawNodes = () => {
       nodes.forEach((node) => {
         const color = node.hue === "gold" ? [200, 181, 116] : [56, 126, 158];
-        const glow = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.r * 7);
-        glow.addColorStop(0, `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${0.56 * node.depth})`);
-        glow.addColorStop(0.42, `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${0.22 * node.depth})`);
+        const glow = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.r * (5.5 + intensity * 7));
+        glow.addColorStop(0, `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${(0.28 + intensity * 0.52) * node.depth})`);
+        glow.addColorStop(0.42, `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${(0.09 + intensity * 0.28) * node.depth})`);
         glow.addColorStop(1, `rgba(${color[0]}, ${color[1]}, ${color[2]}, 0)`);
         ctx.fillStyle = glow;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.r * 7, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${0.9 * node.depth})`;
+        ctx.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${(0.46 + intensity * 0.54) * node.depth})`;
         ctx.beginPath();
-        ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, node.r * (0.85 + intensity * 0.35), 0, Math.PI * 2);
         ctx.fill();
       });
     };
 
     const draw = (time) => {
       const dpr = dprValue();
+      const target = enhancedRef.current ? 1 : 0;
+      intensity += (target - intensity) * 0.045;
+      canvas.style.filter = `brightness(${0.82 + intensity * 0.45}) contrast(${1 + intensity * 0.32}) saturate(${0.92 + intensity * 0.22})`;
       ctx.clearRect(0, 0, width, height);
 
       nodes.forEach((node) => {
@@ -170,7 +179,7 @@ export default function AnimatedBackground() {
   }, []);
 
   return (
-    <div className="animated-background" aria-hidden="true">
+    <div className={`animated-background ${enhanced ? "enhanced" : ""}`} aria-hidden="true">
       <canvas ref={canvasRef} />
       <div className="bg-organic bg-organic-one" />
       <div className="bg-organic bg-organic-two" />
