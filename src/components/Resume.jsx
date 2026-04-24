@@ -1,5 +1,7 @@
 import { Download } from "lucide-react";
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const rows = [
   ["Education", "MBA Big Data Analytics"],
   ["Experience", "Nexval Infotech, KreativeKode"],
@@ -20,7 +22,7 @@ export default function Resume() {
             <strong>{value}</strong>
           </div>
         ))}
-        <a className="cinematic-button" href="/Monarch-Baweja-CV.pdf">
+        <a className="cinematic-button" href={asset("Monarch-Baweja-CV.pdf")}>
           <Download size={15} />
           Download Resume
         </a>

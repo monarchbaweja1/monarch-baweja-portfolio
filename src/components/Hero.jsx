@@ -3,6 +3,8 @@ import { Download, Mail } from "lucide-react";
 import DataConstellation from "./DataConstellation.jsx";
 import TextReveal from "./TextReveal.jsx";
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 export default function Hero() {
   return (
     <section id="intro" className="hero-section cinematic-section">
@@ -20,7 +22,7 @@ export default function Hero() {
         <p className="role-line">Target roles: Data Analyst | Data Scientist | Business Analyst | AI/ML Intern</p>
         <div className="button-row">
           <a className="cinematic-button" href="#projects">View Projects</a>
-          <a className="cinematic-button secondary" href="/Monarch-Baweja-CV.pdf">
+          <a className="cinematic-button secondary" href={asset("Monarch-Baweja-CV.pdf")}>
             <Download size={15} />
             Download Resume
           </a>
@@ -37,7 +39,7 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.9, y: 22 }}
         transition={{ duration: 0.85, delay: 0.45, ease: [0.4, 0, 0.2, 1] }}
       >
-        <img src="/profile.jpg" alt="Monarch Baweja professional portrait" />
+        <img src={asset("profile.jpg")} alt="Monarch Baweja professional portrait" />
         <span className="photo-orbit" />
       </motion.div>
 
