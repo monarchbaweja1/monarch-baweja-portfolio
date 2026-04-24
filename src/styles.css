@@ -875,6 +875,7 @@ button {
   min-height: 430px;
   padding: 25px;
   transform-style: preserve-3d;
+  outline: none;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -897,6 +898,21 @@ button {
 .project-panel:hover::after {
   opacity: 1;
   transform: translateX(40%);
+}
+
+.project-base {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  transition: opacity 0.34s ease, filter 0.34s ease, transform 0.34s ease;
+}
+
+.project-panel:hover .project-base,
+.project-panel:focus-within .project-base,
+.project-panel:focus .project-base {
+  opacity: 0.26;
+  filter: blur(2px);
+  transform: scale(0.985);
 }
 
 .project-panel dl {
@@ -940,6 +956,64 @@ button {
 .project-panel button:hover {
   transform: scale(1.04);
   border-color: rgba(200,181,116,0.46);
+}
+
+.project-hover-card {
+  position: absolute;
+  inset: 18px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(200,181,116,0.28);
+  padding: 24px;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(200,181,116,0.14), transparent 30%),
+    linear-gradient(135deg, rgba(13, 22, 19, 0.96), rgba(2, 8, 8, 0.92));
+  box-shadow: 0 24px 90px rgba(0,0,0,0.54), 0 0 52px rgba(74,158,205,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(22px) scale(0.96) rotateX(4deg);
+  transition: opacity 0.34s ease, transform 0.34s ease, border-color 0.34s ease;
+}
+
+.project-panel:hover .project-hover-card,
+.project-panel:focus-within .project-hover-card,
+.project-panel:focus .project-hover-card {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+.project-hover-card span {
+  color: rgba(200,181,116,0.78);
+  font-size: 10px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.project-hover-card h4 {
+  margin: 16px 0 18px;
+  color: rgba(255,255,255,0.94);
+  font-family: "Arial Narrow", "Roboto Condensed", Impact, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.25rem, 2vw, 1.85rem);
+  font-weight: 850;
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.project-hover-card ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.project-hover-card li {
+  color: rgba(255,255,255,0.78);
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .skill-group {
