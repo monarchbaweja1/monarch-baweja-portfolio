@@ -721,9 +721,34 @@ button {
   border: 1px solid rgba(255,255,255,0.1);
   background:
     linear-gradient(135deg, rgba(255,255,255,0.055), transparent 42%),
+    linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.46)),
     radial-gradient(circle at 88% 10%, rgba(200,181,116,0.08), transparent 30%),
-    rgba(4, 10, 9, 0.62);
+    rgba(2, 7, 7, 0.78);
   backdrop-filter: blur(14px);
+}
+
+.snapshot-block::before,
+.cinematic-panel::before,
+.project-panel::before,
+.skill-group::before,
+.resume-preview::before,
+.contact-grid a::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(0,0,0,0.18), transparent 44%, rgba(0,0,0,0.16));
+  pointer-events: none;
+}
+
+.snapshot-block > *,
+.cinematic-panel > *,
+.project-panel > *,
+.skill-group > *,
+.resume-preview > *,
+.contact-grid a > * {
+  position: relative;
+  z-index: 1;
 }
 
 .snapshot-block,
@@ -766,9 +791,15 @@ button {
 .skill-group span,
 .contact-grid strong,
 .resume-preview strong {
-  color: rgba(255,255,255,0.58);
+  color: rgba(255,255,255,0.78);
   font-size: 14px;
   line-height: 1.65;
+  text-shadow: 0 1px 14px rgba(0,0,0,0.35);
+}
+
+.section-header p:not(.eyebrow) {
+  color: rgba(255,255,255,0.76);
+  text-shadow: 0 1px 18px rgba(0,0,0,0.45);
 }
 
 .timeline {
